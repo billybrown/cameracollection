@@ -1,0 +1,11 @@
+# for node and grunt
+node_modules
+
+# for bower package management
+bower_components
+
+# for source maps
+*.css.map 
+
+# for sass
+.sass-cache
