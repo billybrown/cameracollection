@@ -9,3 +9,6 @@ bower_components
 
 # for sass
 .sass-cache
+
+# for github pages auto publishing
+.grunt
