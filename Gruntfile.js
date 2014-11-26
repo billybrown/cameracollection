@@ -190,7 +190,7 @@ module.exports = function (grunt) {
     'uglify',
     'size_report'
   ]);
-  grunt.registerTask('deploy', ['build', 'gh-pages']);
+  grunt.registerTask('deploy', ['node_version', 'gh-pages']);
 
 
 };
