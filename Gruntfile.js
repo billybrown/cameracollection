@@ -133,7 +133,8 @@ module.exports = function (grunt) {
         files: [
           {expand: true, cwd: 'src/fonts/', src: ['**/*'], dest: 'dist/fonts/'},
           {expand: true, cwd: 'src/files/', src: ['**/*'], dest: 'dist/files/'},
-          {expand: true, cwd: 'src/img/', src: ['**/*'], dest: 'dist/img/'}
+          {expand: true, cwd: 'src/img/', src: ['**/*'], dest: 'dist/img/'},
+          {expand: true, cwd: 'src/CNAME', src: ['**/*'], dest: 'dist/CNAME'}
         ],
       },
     },
