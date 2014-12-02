@@ -1,7 +1,7 @@
 Camera Collection
 ================
 
-[http://b.illbrown.com/cameracollection](b.illbrown.com/cameracollection)
+[http://b.illbrown.com/cameracollection](http://b.illbrown.com/cameracollection)
 
 A collection of 100 pixelated camera illustrations for anybody to download and use in whatever way they see fit.
 
