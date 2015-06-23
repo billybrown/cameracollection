@@ -16,18 +16,6 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    // this task makes sure you are running the right version of node
-    node_version: {
-      options: {
-        alwaysInstall: false,
-        errorLevel: 'fatal',
-        globals: [],
-        maxBuffer: 200*1024,
-        nvm: true,
-        override: ''
-      }
-    },
-
     // this task allows you to publish to github pages
     'gh-pages': {
       options: {
@@ -64,15 +52,6 @@ module.exports = function (grunt) {
           map: true
         },
         src: 'dist/css/main.css'
-      }
-    },
-
-    // this task removes unused css
-    uncss: {
-      dist: {
-        files: {
-          'dist/css/main.css': ['dist/index.html']
-        }
       }
     },
 
@@ -133,6 +112,7 @@ module.exports = function (grunt) {
         files: [
           {expand: true, cwd: 'src/fonts/', src: ['**/*'], dest: 'dist/fonts/'},
           {expand: true, cwd: 'src/files/', src: ['**/*'], dest: 'dist/files/'},
+          {expand: true, cwd: 'src/js/', src: ['**/*'], dest: 'dist/js/'},
           {expand: true, cwd: 'src/img/', src: ['**/*'], dest: 'dist/img/'},
           {expand: true, cwd: 'src', src: ['CNAME'], dest: 'dist'}
         ],
@@ -152,15 +132,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // this minifies and concatenates your javascript
-    uglify: {
-      my_target: {
-        files: {
-          'dist/js/scripts.min.js': ['src/js/jquery-1.4.4.min.js', 'src/js/jquery.isotope.min.js', 'src/js/scripts.js']
-        }
-      }
-    },
-
 
     // this tasks abouts the size of files in your theme directory
     // Helps when your trying to optimize for performance
@@ -176,22 +147,18 @@ module.exports = function (grunt) {
 
 
   // documentation on how to run different tasks is in the readme
-  grunt.registerTask('default', ['node_version']);
-  grunt.registerTask('css', ['node_version', 'sass', 'autoprefixer']);
+  grunt.registerTask('css', ['sass', 'autoprefixer']);
   grunt.registerTask('build', [
-    'node_version', 
     'clean', 
     'htmlmin',
     'imagemin', 
     'sass', 
     'autoprefixer', 
-    'uncss',
     'csso', 
     'copy',
-    'uglify',
     'size_report'
   ]);
-  grunt.registerTask('deploy', ['node_version', 'gh-pages']);
+  grunt.registerTask('deploy', ['gh-pages']);
 
 
 };
