@@ -7,6 +7,9 @@ module.exports = function (grunt) {
   // @author bill, echo & co.
   require('time-grunt')(grunt);
 
+
+  const sass = require('node-sass');
+
   // this allows you to remove all the 'loadNPMtasks' calls, and speeds up task running
   // @author bill, echo & co.
   require('jit-grunt')(grunt, {
@@ -29,6 +32,7 @@ module.exports = function (grunt) {
     // but it lags behind sass in features.
     sass: {
         options: {
+            implementation: sass,
             sourceMap: true
         },
         dist: {
